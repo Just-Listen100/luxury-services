@@ -3,8 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Luxury Services: systems that never call home</title>
-<meta name="description" content="Custom security and automation software for private clients. Everything runs on your own hardware, offline by default, encrypted end to end. Nothing calls home.">
+<title>Just Luxury Services: systems that never call home</title>
+<meta name="description" content="Just Luxury Services builds custom security and automation software for private clients. Everything runs on your own hardware, offline by default, encrypted end to end. Nothing calls home.">
+<meta property="og:title" content="Just Luxury Services: systems that never call home">
+<meta property="og:description" content="Custom security and automation software for private clients. Offline by default, encrypted end to end, nothing calls home.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%230c0d11'/%3E%3Cpath d='M13 45 L21 20 L28 39 L32 15 L36 39 L43 20 L51 45 Z' fill='none' stroke='%23c9a86a' stroke-width='3' stroke-linejoin='round'/%3E%3Crect x='11' y='45' width='42' height='8' rx='3' fill='%23c9a86a'/%3E%3C/svg%3E">
 <style>
   :root{
     --bg:#0c0d11; --bg2:#12131a; --panel:#161823; --line:#262a38;
@@ -18,14 +21,25 @@
   a{color:var(--gold2)}
   nav{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(12,13,17,.92);backdrop-filter:blur(8px);z-index:9}
   nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{font-size:19px;color:var(--ink);text-decoration:none}
+  .brand{font-size:18px;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:11px}
+  .crownn{width:27px;height:auto;flex:none}
   .brand span{color:var(--gold)}
   .navcta{color:var(--gold2);text-decoration:none;font-size:14px;letter-spacing:.08em;text-transform:uppercase}
-  header{padding:110px 0 90px;text-align:left}
+  header{padding:88px 0 96px;text-align:center}
+  .mark{position:relative}
+  .mark::before{content:"";position:absolute;left:50%;top:-30px;transform:translateX(-50%);width:480px;height:480px;background:radial-gradient(circle,rgba(201,168,106,.13),transparent 62%);pointer-events:none}
+  .crown{width:114px;height:auto;display:block;margin:0 auto 4px;position:relative}
+  .monogram{font-family:Georgia,"Times New Roman",serif;font-weight:normal;font-size:clamp(74px,13vw,132px);line-height:1.04;letter-spacing:.09em;margin-left:.09em;background:linear-gradient(180deg,#f6e6ba 0%,#dcbc7e 42%,#a8813f 100%);-webkit-background-clip:text;background-clip:text;color:transparent;position:relative}
+  .wordmark{margin-top:15px;font-size:14px;letter-spacing:.46em;text-transform:uppercase;color:var(--gold2);margin-left:.46em;position:relative}
+  .crest-rule{display:flex;align-items:center;justify-content:center;gap:14px;margin:32px auto 34px;max-width:360px}
+  .crest-rule::before,.crest-rule::after{content:"";height:1px;flex:1}
+  .crest-rule::before{background:linear-gradient(90deg,transparent,var(--gold))}
+  .crest-rule::after{background:linear-gradient(90deg,var(--gold),transparent)}
+  .crest-rule i{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);flex:none}
   .eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
-  header h1{font-size:clamp(38px,6vw,58px);line-height:1.15;max-width:14ch}
-  header p.lede{margin-top:24px;max-width:56ch;color:var(--muted);font-size:18px}
-  .rule{height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:34px 0 0;width:120px}
+  header h1{font-size:clamp(38px,6vw,58px);line-height:1.15;max-width:16ch;margin:0 auto}
+  header p.lede{margin:24px auto 0;max-width:56ch;color:var(--muted);font-size:18px}
+  .hero-cta{margin-top:42px}
   section{padding:76px 0;border-top:1px solid var(--line)}
   .num{font-size:12px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:10px}
   h2{font-size:clamp(26px,3.6vw,36px);margin-bottom:26px;max-width:24ch}
@@ -53,19 +67,49 @@
   .cta p{margin:0 auto 34px;color:var(--muted)}
   .btn{display:inline-block;background:var(--gold);color:#14110a;padding:16px 40px;border-radius:4px;text-decoration:none;font-size:14px;letter-spacing:.14em;text-transform:uppercase}
   .btn:hover{background:var(--gold2)}
-  footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:13px}
-  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-  @media(max-width:760px){.grid2,.grid3{grid-template-columns:1fr}.step{gap:14px}}
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:13px;text-align:center}
+  .crownf{width:32px;height:auto;display:block;margin:0 auto 12px;opacity:.92}
+  footer .fsrc{margin-top:6px}
+  @media(max-width:760px){.grid2,.grid3{grid-template-columns:1fr}.step{gap:14px}.mark::before{width:320px;height:320px}}
 </style>
 </head>
 <body>
-<nav><div class="wrap"><a class="brand" href="#top">Luxury <span>Services</span></a><a class="navcta" href="#contact">Request a consultation</a></div></nav>
-<header id="top"><div class="wrap">
+<nav><div class="wrap"><a class="brand" href="#top"><svg class="crownn" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><defs><linearGradient id="gnav" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8f6b2e"/><stop offset=".5" stop-color="#e3cfa4"/><stop offset="1" stop-color="#8f6b2e"/></linearGradient></defs><g fill="none" stroke="url(#gnav)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M22 58 L34 24 L48 52 L60 14 L72 52 L86 24 L98 58"/><path d="M60 14 L60 4 M56 7.5 L64 7.5"/></g><circle cx="34" cy="24" r="3.4" fill="url(#gnav)"/><circle cx="86" cy="24" r="3.4" fill="url(#gnav)"/><rect x="16" y="58" width="88" height="13" rx="4" fill="none" stroke="url(#gnav)" stroke-width="3"/><path d="M42 64.5 L45 61.5 L48 64.5 L45 67.5 Z" fill="url(#gnav)"/><path d="M57 64.5 L60 61.5 L63 64.5 L60 67.5 Z" fill="url(#gnav)"/><path d="M72 64.5 L75 61.5 L78 64.5 L75 67.5 Z" fill="url(#gnav)"/></svg>Just&nbsp;<span>Luxury Services</span></a><a class="navcta" href="#contact">Request a consultation</a></div></nav>
+<header id="top">
+<div class="wrap">
+  <div class="mark">
+    <svg class="crown" viewBox="0 0 120 84" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="ghero" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#8f6b2e"/>
+          <stop offset=".42" stop-color="#c9a86a"/>
+          <stop offset=".5" stop-color="#f4e0aa"/>
+          <stop offset=".58" stop-color="#c9a86a"/>
+          <stop offset="1" stop-color="#8f6b2e"/>
+          <animateTransform attributeName="gradientTransform" type="translate" values="-1.4 0; 1.4 0; -1.4 0" dur="9s" repeatCount="indefinite"/>
+        </linearGradient>
+      </defs>
+      <g fill="none" stroke="url(#ghero)" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M22 58 L34 24 L48 52 L60 14 L72 52 L86 24 L98 58"/>
+        <path d="M60 14 L60 4 M56 7.5 L64 7.5"/>
+      </g>
+      <circle cx="34" cy="24" r="3.4" fill="url(#ghero)"/>
+      <circle cx="86" cy="24" r="3.4" fill="url(#ghero)"/>
+      <rect x="16" y="58" width="88" height="13" rx="4" fill="none" stroke="url(#ghero)" stroke-width="2.6"/>
+      <path d="M42 64.5 L45 61.5 L48 64.5 L45 67.5 Z" fill="url(#ghero)"/>
+      <path d="M57 64.5 L60 61.5 L63 64.5 L60 67.5 Z" fill="url(#ghero)"/>
+      <path d="M72 64.5 L75 61.5 L78 64.5 L75 67.5 Z" fill="url(#ghero)"/>
+    </svg>
+    <div class="monogram">JLS</div>
+    <div class="wordmark">Just Luxury Services</div>
+  </div>
+  <div class="crest-rule"><i></i></div>
   <div class="eyebrow">Custom cybersecurity &amp; home automation systems</div>
   <h1>Systems that never call home.</h1>
-  <p class="lede">Luxury Services builds custom security and automation software for private clients. Everything runs on your own hardware, inside your walls. Offline by default. Encrypted end to end. Your home is not someone else's data center.</p>
-  <div class="rule"></div>
-</div></header>
+  <p class="lede">Just Luxury Services builds custom security and automation software for private clients. Everything runs on your own hardware, inside your walls. Offline by default. Encrypted end to end. Your home is not someone else's data center.</p>
+  <a class="btn hero-cta" href="mailto:lamisonj19@gmail.com?subject=Private%20consultation%20request">Request a private consultation</a>
+</div>
+</header>
 <section><div class="wrap">
   <span class="num">01</span><h2>The smartest homes leak the most</h2>
   <p>A modern automated home is a fleet of small computers, and almost every one is designed to send your life somewhere else. Cameras streaming to a company's cloud. Locks whose codes live on other people's servers. Assistants that record first and ask later. Thermostats, doorbells, and TVs reporting patterns a stranger can read.</p>
@@ -113,5 +157,10 @@
   <p>A quiet conversation about your property and your exposure. No pitch, no pressure, no forms. Email us and we will map what your home is telling the world today.</p>
   <a class="btn" href="mailto:lamisonj19@gmail.com?subject=Private%20consultation%20request">Request a private consultation</a>
 </div></section>
-<footer><div class="wrap"><div>Luxury Services. Custom security and automation systems. <a href="https://github.com/Just-Listen100/luxury-services">Source on GitHub</a></div><div>Private by architecture. Nothing calls home.</div></div></footer>
-</body></html>
+<footer><div class="wrap">
+  <svg class="crownf" viewBox="0 0 120 84" aria-hidden="true" focusable="false"><defs><linearGradient id="gfoot" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8f6b2e"/><stop offset=".5" stop-color="#c9a86a"/><stop offset="1" stop-color="#8f6b2e"/></linearGradient></defs><g fill="none" stroke="url(#gfoot)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M22 58 L34 24 L48 52 L60 14 L72 52 L86 24 L98 58"/><path d="M60 14 L60 4 M56 7.5 L64 7.5"/></g><circle cx="34" cy="24" r="3.4" fill="url(#gfoot)"/><circle cx="86" cy="24" r="3.4" fill="url(#gfoot)"/><rect x="16" y="58" width="88" height="13" rx="4" fill="none" stroke="url(#gfoot)" stroke-width="3"/><path d="M42 64.5 L45 61.5 L48 64.5 L45 67.5 Z" fill="url(#gfoot)"/><path d="M57 64.5 L60 61.5 L63 64.5 L60 67.5 Z" fill="url(#gfoot)"/><path d="M72 64.5 L75 61.5 L78 64.5 L75 67.5 Z" fill="url(#gfoot)"/></svg>
+  <div>Just Luxury Services. Custom security and automation systems. <a href="https://github.com/Just-Listen100/luxury-services">Source on GitHub</a></div>
+  <div class="fsrc">Private by architecture. Nothing calls home.</div>
+</div></footer>
+</body>
+</html>

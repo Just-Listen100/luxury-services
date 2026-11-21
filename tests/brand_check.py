@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Site checks for the Luxury Services one-page site.
+"""Site checks for the Just Luxury Services one-page site.
 
 Run on every push. Fails the build if the site drifts from the brand rules:
-wrong name, images anywhere, old brand strings, or a broken structure.
+wrong or shortened name, images anywhere, old brand strings, or a broken
+structure.
 """
 import re
 import sys
@@ -13,16 +14,20 @@ ROOT = Path(__file__).resolve().parent.parent
 PAGE = ROOT / "index.html"
 
 REQUIRED_STRINGS = [
-    "Luxury Services",
+    "Just Luxury Services",
     "systems that never call home",
     "mailto:lamisonj19@gmail.com",
     "github.com/Just-Listen100/luxury-services",
 ]
 FORBIDDEN_STRINGS = [
     "AetherGuard",          # retired brand name, must never reappear
-    "<img",                  # typography only, no images of any kind
+    "<img",                  # typography and code-drawn marks only, no image files
     "<img ",                 # guard against spacing variants
 ]
+# The public name is exactly "Just Luxury Services". "Luxury Services" may
+# appear only as part of the full name, never on its own.
+SHORT_NAME_RE = re.compile(r"(?<!Just )(?<!just )Luxury Services")
+ALLOWED_LINK_PREFIXES = ("mailto:", "#", "https://", "data:image/svg+xml")
 VOID_TAGS = {"meta", "link", "br", "img", "hr", "input"}
 
 
@@ -74,10 +79,20 @@ def main() -> int:
         if needle.lower() in html.lower():
             failures.append(f"forbidden string present: {needle!r}")
 
+    # The name rule applies to what a visitor reads, so check the rendered
+    # text with tags stripped and all whitespace collapsed.
+    rendered = re.sub(r"\s+", " ", text)
+    short = SHORT_NAME_RE.findall(rendered)
+    if short:
+        failures.append(
+            f"brand name shortened to 'Luxury Services' ({len(short)} place(s)); "
+            "the public name is exactly 'Just Luxury Services'"
+        )
+
     links = re.findall(r'href="([^"]+)"', html)
-    bad_links = [h for h in links if not (h.startswith("mailto:") or h.startswith("#") or h.startswith("https://"))]
+    bad_links = [h for h in links if not h.startswith(ALLOWED_LINK_PREFIXES)]
     if bad_links:
-        failures.append(f"links must be mailto, anchor, or https: {bad_links}")
+        failures.append(f"links must be mailto, anchor, https, or an inline svg favicon: {bad_links}")
 
     if failures:
         print(f"FAILED: {len(failures)} problem(s)")
@@ -85,7 +100,7 @@ def main() -> int:
             print(f"  - {f}")
         return 1
 
-    print(f"OK: {PAGE.name} clean. brand name present, no images, structure valid, {len(links)} links checked.")
+    print(f"OK: {PAGE.name} clean. full brand name present, no shortened name, no images, structure valid, {len(links)} links checked.")
     return 0
 
 
